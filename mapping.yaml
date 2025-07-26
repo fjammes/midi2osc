@@ -1,0 +1,22 @@
+osc_target: "osc.tcp://clrinfopo18.home:22752"
+
+mappings:
+  - cc: 27
+    value: 1
+    actions:
+      - path: "/Carla_Patchbay_4/0/set_active"
+        type: "i"
+        value: 1
+      - path: "/Carla/SomeEffect/enable"
+        type: "T"
+        value: true
+
+  - cc: 27
+    value: 0
+    actions:
+      - path: "/Carla_Patchbay_4/0/set_active"
+        type: "i"
+        value: 0
+      - path: "/Carla/SomeEffect/enable"
+        type: "F"
+        value: false
