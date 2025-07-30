@@ -1,22 +1,106 @@
-osc_target: "osc.tcp://clrinfopo18.home:22752"
+osc_target: "osc.tcp://clrinfopo18:22752"
 
 mappings:
-  - cc: 27
+  - cc: 100
     value: 1
     actions:
       - path: "/Carla_Patchbay_4/0/set_active"
         type: "i"
         value: 1
-      - path: "/Carla/SomeEffect/enable"
-        type: "T"
-        value: true
+      - path: "/Carla_Patchbay_4/1/set_active"
+        type: "i"
+        value: 1
+      - path: "/Carla_Patchbay_4/2/set_active"
+        type: "i"
+        value: 1
 
-  - cc: 27
+  - cc: 100
     value: 0
     actions:
       - path: "/Carla_Patchbay_4/0/set_active"
         type: "i"
         value: 0
-      - path: "/Carla/SomeEffect/enable"
-        type: "F"
-        value: false
+      - path: "/Carla_Patchbay_4/1/set_active"
+        type: "i"
+        value: 0
+      - path: "/Carla_Patchbay_4/2/set_active"
+        type: "i"
+        value: 0
+
+  - cc: 101
+    value: 1
+    actions:
+      - path: "/Carla_Patchbay_4/3/set_active"
+        type: "i"
+        value: 1
+      - path: "/Carla_Patchbay_4/4/set_active"
+        type: "i"
+        value: 1
+      - path: "/Carla_Patchbay_4/5/set_active"
+        type: "i"
+        value: 1
+
+  - cc: 101
+    value: 0
+    actions:
+      - path: "/Carla_Patchbay_4/3/set_active"
+        type: "i"
+        value: 0
+      - path: "/Carla_Patchbay_4/4/set_active"
+        type: "i"
+        value: 0
+      - path: "/Carla_Patchbay_4/5/set_active"
+        type: "i"
+        value: 0
+
+  - cc: 102
+    value: 1
+    actions:
+      - path: "/Carla_Patchbay_4/6/set_active"
+        type: "i"
+        value: 1
+      - path: "/Carla_Patchbay_4/7/set_active"
+        type: "i"
+        value: 1
+      - path: "/Carla_Patchbay_4/8/set_active"
+        type: "i"
+        value: 1
+
+  - cc: 102
+    value: 0
+    actions:
+      - path: "/Carla_Patchbay_4/6/set_active"
+        type: "i"
+        value: 0
+      - path: "/Carla_Patchbay_4/7/set_active"
+        type: "i"
+        value: 0
+      - path: "/Carla_Patchbay_4/8/set_active"
+        type: "i"
+        value: 0
+
+  - cc: 103
+    value: 1
+    actions:
+      - path: "/Carla_Patchbay_4/9/set_active"
+        type: "i"
+        value: 1
+      - path: "/Carla_Patchbay_4/10/set_active"
+        type: "i"
+        value: 1
+      - path: "/Carla_Patchbay_4/11/set_active"
+        type: "i"
+        value: 1
+
+  - cc: 103
+    value: 0
+    actions:
+      - path: "/Carla_Patchbay_4/9/set_active"
+        type: "i"
+        value: 0
+      - path: "/Carla_Patchbay_4/10/set_active"
+        type: "i"
+        value: 0
+      - path: "/Carla_Patchbay_4/11/set_active"
+        type: "i"
+        value: 0
