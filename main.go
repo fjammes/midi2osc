@@ -83,9 +83,7 @@ func atoi(s string) int {
 }
 
 func process(nframes uint32) int {
-	slog.Debug("Processing MIDI events", "nframes", nframes)
 	events := portIn.GetMidiEvents(nframes)
-	slog.Debug("Received MIDI events", "count", len(events))
 
 	if cfg == nil {
 		slog.Error("Skipping processing: config is nil")
@@ -93,6 +91,8 @@ func process(nframes uint32) int {
 	}
 
 	for _, event := range events {
+
+		slog.Debug("Received MIDI events", "count", len(events))
 		ch <- fmt.Sprintf("%#v", event)
 		if event.Buffer[0]&0xF0 == 0xB0 { // CC
 			cc := event.Buffer[1]
@@ -122,7 +122,7 @@ func main() {
 	cfgPath := flag.String("config", "mapping.yaml", "Path to YAML config")
 	flag.Parse()
 
-	logger := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelInfo}))
+	logger := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
 	slog.SetDefault(logger)
 
 	var err error
