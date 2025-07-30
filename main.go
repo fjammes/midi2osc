@@ -86,6 +86,12 @@ func process(nframes uint32) int {
 	slog.Debug("Processing MIDI events", "nframes", nframes)
 	events := portIn.GetMidiEvents(nframes)
 	slog.Debug("Received MIDI events", "count", len(events))
+
+	if cfg == nil {
+		slog.Error("Skipping processing: config is nil")
+		return 0
+	}
+
 	for _, event := range events {
 		ch <- fmt.Sprintf("%#v", event)
 		if event.Buffer[0]&0xF0 == 0xB0 { // CC
@@ -119,7 +125,8 @@ func main() {
 	logger := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelInfo}))
 	slog.SetDefault(logger)
 
-	cfg, err := loadConfig(*cfgPath)
+	var err error
+	cfg, err = loadConfig(*cfgPath)
 	if err != nil {
 		slog.Error("Failed to load config", slog.String("file", *cfgPath), slog.Any("err", err))
 		os.Exit(1)
