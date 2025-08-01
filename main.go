@@ -143,7 +143,6 @@ func main() {
 	flag.Parse()
 
 	if *cfgPath == "" {
-		var cfg Config
 		err := yaml.Unmarshal([]byte(resources.MidiMappingYaml), &cfg)
 		if err != nil {
 			slog.Error("Failed to parse embedded config", slog.Any("err", err))
